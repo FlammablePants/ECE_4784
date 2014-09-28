@@ -33,10 +33,10 @@ n(1) = an(1) / (an(1) + bn(1));
 h(1) = ah(1) / (ah(1) + bh(1));
 
 %% Injected Current %%
-amp = input('Enter the amplitude in mA of the injected current: ');
+amp = input('Enter the amplitude of the injected current (in uA/cm^2): ');
 dur = input('Enter the duration of the injected current [between 0 and 100 ms]: ');
 I = zeros(1, len); % Setting up I to be the same size as the time array
-for y = 1:floor(dur/ts) % injected current goes from 0 to (duration entered / time step), elsewhere is 0
+for y = 1:dur/ts % injected current goes from 0 to (duration entered / time step), elsewhere is 0
     I(y) = amp;
 end
 
@@ -81,7 +81,7 @@ title('Membrane Potential');
 xlabel('Time (ms)');
 ylabel('Membrane Voltage (mV)');
 legend('Vm');
-axis([0, 100, -100, 80]);
+axis([0, 100, -100, 40]);
 
 %Plot conductances
 newtime = x(1:len-1); % Creating time to be same length as conductances
