@@ -36,7 +36,7 @@ h(1) = ah(1)/(ah(1)+bh(1));
 amp = input('Enter the amplitude in mA of the injected current: ');
 dur = input('Enter the duration of the injected current [between 0 and 100 ms]: ');
 I = zeros(1, len); % Setting up I to be the same size as the time array
-for y = 1:floor(dur/ts)
+for y = 1:floor(dur/ts) % injected current goes from 0 to (duration entered / time step)
     I(y) = amp;
 end
 
@@ -84,7 +84,7 @@ legend('Vm');
 axis([0, 100, -100, 80]);
 
 %Plot conductances
-newtime = 1:len-1;
+newtime = x(1:len-1);
 figure(2)
 plot(newtime, g_na, 'r', newtime, g_k, 'b')
 title('gK and gNa')
