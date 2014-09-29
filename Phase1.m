@@ -33,7 +33,7 @@ n(1) = an(1) / (an(1) + bn(1));
 h(1) = ah(1) / (ah(1) + bh(1));
 
 %% Injected Current %%
-amp = input('Enter the amplitude of the injected current (in uA/cm^2): ');
+amp = input('Enter the amplitude of the injected current (in uA/cm^2). 50 uA/cm^2 works nicely: ');
 dur = input('Enter the duration of the injected current [between 0 and 100 ms]: ');
 I = zeros(1, len); % Setting up I to be the same size as the time array
 for y = 1:dur/ts % injected current goes from 0 to (duration entered / time step), elsewhere is 0
@@ -74,6 +74,7 @@ for i = 1 : len-1
 end
 
 %% Plotting %%
+%Plot membrane potential
 Vm = Vm + V_rest; % setting Vm to be relative to V_rest
 figure(1)
 plot(x,Vm)
